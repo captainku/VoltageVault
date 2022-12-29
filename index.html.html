@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Voltage Vault</title>
+<link rel="icon" href="headerIcon.svg">
+<link rel="stylesheet" href="style.css">
+<script type="text/javascript" src="calculate.js"></script>
+</head>
+<body>
+
+
+    <div class="container">
+        <div class="brand-logo"></div>
+        <div class="brand-title">VOLTAGE VAULT</div>
+        <!--SOLVE FORE OPTIONS-->
+        <div class="options">
+            <div class="optionHeading">
+                <p>SOLVE FOR</p>
+            </div>
+            <div>
+                <input onchange=solveFor() name="option" type="radio" id="solveVoltage" class="solve" >
+                <label for="solveVoltage">VOLTAGE</label>
+            </div>
+
+            <div>
+                <input onchange=solveFor() name="option" type="radio" id="solveCurrent" class="solve">
+                <label for="solveCurrent">CURRENT</label>
+            </div>
+            <div>
+                <input onchange=solveFor() name="option" type="radio" id="solvePower" class="solve">
+                <label for="solvePower">POWER</label>
+            </div>
+          </div>
+
+        <div class="inputs">
+        <!--Voltage Inputs----------------------------------------------- -->
+            <div class="inputLable">
+                <label id="vLabel">VOLTAGE <small>(volts)</small> </label>
+                <!--unit selection drop down-->
+                <label class="unit"><small>Unit: </small>
+                <select onchange="unitManager()" id="voltUnit">
+                    <option value="(Volts)">V</option>
+                    <option value="(KiloVolts)">kV</option>
+                </select>
+            </div>
+          <input  onkeyup=calc() id="voltInput" type="string" placeholder="VOLTS"value=0 />
+
+          <!--Current Inputs------------------------------------------------- -->
+          <div class="inputLable">
+                <label id="aLabel">CURRENT <small>(amps)</small> </label>
+                <!--unit selection drop down-->
+                <label class="unit"><small>Unit: </small>
+                <select onchange="unitManager()" id="ampUnit">
+                    <option value="(Amps)">A</option>
+                    <option value="(KiloAmps)">KA</option>
+                </select>
+            </div>
+          <input onkeyup=calc()  id="ampInput" type="string" placeholder="AMPS" value=0 />
+        <!--Power Inputs------------------------------------------------- -->
+            <div class="inputLable">
+                <label id="pLabel">POWER <small>(watts)</small> </label>
+                <!--unit selection drop down-->
+                <label class="unit"><small>Unit: </small>
+                <select onchange="unitManager()" id="powerUnit">
+                    <option value="(Watts)">W</option>
+                    <option value="(KiloWatts)">KW</option>
+                    <option value="(MegaWatts)">MW</option>
+                </select>
+            </div>
+          <input onkeyup=calc() id="powerInput" type="string" placeholder="WATTS" value=0 />
+          <label>POWER FACTOR </label>
+          <input onkeyup=calc() id="powerFACInput"  type="number" step="0.01" placeholder="WATTS" value=1 max="1"/>
+          <!--THREE PHASE VS SINGLE PHASE INPUT-->
+            <div class="radioInput">
+                <input onchange=calc() id="btn3Phase" class="toggle toggle-left" name="toggle" value="false" type="radio" >
+                <label for="btn3Phase" class="btn">3-PHASE</label>
+                <input onchange=calc() id="btn1Phase" class="toggle toggle-right" name="toggle" value="true" type="radio"checked>
+                <label for="btn1Phase" class="btn">SINGLE PHASE</label>
+            </div>
+            <!-- Start Results Section-->
+            
+
+        </div>
+            <div class="results">
+
+                <div class="resultContain">
+                    <h2 class="resultHeading">VOLTAGE</h2>
+                    <p class= "resultsNumber" id="resultVotlage">0 VOLTS</p>
+                </div>
+
+                <div class="resultContain">
+                    <h2 class="resultHeading">CURRENT</h2>
+                    <p class= "resultsNumber" id="resultCurrent">0 AMPS</p>
+                </div>
+
+                <div class="resultContain">
+                    <h2 class="resultHeading">REAL POWER</h2>
+                    <p class= "resultsNumber" id="resultPower">0 WATTS</p>
+                </div>
+                <div class="resultContain">
+                    <h2 class="resultHeading">APPARENT POWER</h2>
+                    <p class= "resultsNumber" id="resultAppPower">0 VA</p>
+                </div>
+
+                <div class="resultContain">
+                    <h2 class="resultHeading">POWER FACTOR</h2>
+                    <p class= "resultsNumber" id="resultPowerFactor">1</p>
+                </div>
+                  
+            </div>
+      </div>
+
+</body>
+</html>
